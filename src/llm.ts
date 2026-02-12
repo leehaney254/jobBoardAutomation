@@ -25,6 +25,8 @@ ${description.slice(0, 3000)}
 Tone: confident and concise.
 `;
 
+console.log(prompt);
+
   const response = await openai.chat.completions.create({
     model: "gpt-4o-mini",
     messages: [{ role: "user", content: prompt }],
