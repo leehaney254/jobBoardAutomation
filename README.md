@@ -119,7 +119,7 @@ To run the project, execute the following command:
 ```
 ### Sample Output
 <img width="684" height="390" alt="image" src="https://github.com/user-attachments/assets/2123b8bc-fd75-40c6-94b0-2a5c6760f164" />
-
+- Sample output can be found [here.](https://docs.google.com/spreadsheets/d/11HT0EPIsxJok8sOilMb5RcGm6uvMR2sydbvK-YMKneQ/edit?usp=sharing)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
