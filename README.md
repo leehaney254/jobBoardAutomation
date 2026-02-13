@@ -117,6 +117,10 @@ To run the project, execute the following command:
 ```sh
  npm run start
 ```
+### Sample Output
+<img width="684" height="390" alt="image" src="https://github.com/user-attachments/assets/2123b8bc-fd75-40c6-94b0-2a5c6760f164" />
+
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
