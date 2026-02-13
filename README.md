@@ -46,7 +46,6 @@
 - **Dynamic Job Scraping**
 - **Popup Handling**
 - **Job Data Extraction**
-- **Job Data Extraction**
 - **Modular Design**
 - **Customizable cronjob**
 
