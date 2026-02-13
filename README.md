@@ -39,12 +39,6 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Documentation <a name="Documentation"></a>
-
-The apps documentation can be found [here.](https://www.notion.so/Documentation-305975f7b086806c9008f3514d1b31cd)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
@@ -86,6 +80,8 @@ To get a local copy up and running, follow these steps:
 - `npm run start`
 - Open your Google Sheet to see the scraped jobs and generated messages
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## 💻 Automatic scheduling <a name="getting-started"></a>
 - The cronjob has already been configured under `.github/workflows/cron.yml`
 - Go to your repository on GitHub
@@ -95,6 +91,8 @@ To get a local copy up and running, follow these steps:
   - `OPENAI_API_KEY` → Your OpenAI API key
   - `SHEET_ID` → Your Google Sheet ID
 - Note the cronjob runs at UTC adjust as needed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Prerequisites
 
@@ -109,6 +107,50 @@ To run the app you need:
 - **OpenAI Account** – To get an API key for LLM message generation
 - **.env file** – To store sensitive keys (OPENAI_API_KEY, SHEET_ID, GOOGLE_APPLICATION_CREDENTIALS)
 - **Credentials JSON** – Service account file downloaded from Google Cloud for Sheets API access
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Trouble-shooting
+If the application fails to run, follow the steps below:
+
+- Dependencies Not Installed
+
+If you see errors like:
+
+```sh
+ Cannot find module...
+```
+Run:
+```sh
+npm install
+npx playwright install
+```
+Make sure Node.js (v18+) is installed:
+```sh
+ node -v
+```
+- Playwright Browser Errors
+
+If the browser fails to launch:
+```sh
+ npx playwright install --with-deps
+```
+On Linux systems, missing system dependencies may cause crashes.
+
+- Environment Variables Not Loaded
+
+If environment variables appear undefined:
+
+Ensure a .env file exists in the project root.
+
+Confirm it includes:
+```sh
+ OPENAI_API_KEY=your_openai_api_key
+SHEET_ID=your_google_sheet_id
+GOOGLE_APPLICATION_CREDENTIALS=./credentials.json
+```
+
+Restart your terminal after editing the .env file.
 
 ### Usage
 
