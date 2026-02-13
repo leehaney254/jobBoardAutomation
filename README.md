@@ -1,31 +1,15 @@
-
-types script does not run natively so use: npm install --save-dev ts-node typescript
-
-to run applicatio you need
-to run `npm run start`
-
-future improvements
-Add rate limiting in real production
-Add deduplication logic
-Add proxy rotation if scaling
-Replace scraper with official API when available
-
 <!-- TABLE OF CONTENTS -->
 
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 Library Management Backend ](#-library-management-backend-)
+- [📖 Job Board Automation ](#Job board automation-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Documentation ](#documentation-)
-    - [Front end ](#front-end-)
-    - [ERD Diagram ](#erd-diagram-)
     - [Key Features ](#key-features-)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
-    - [Usage](#usage)
-    - [Run tests](#run-tests)
   - [👥 Author ](#-author-)
   - [🔭 Future Features ](#-future-features-)
   - [🤝 Contributing ](#-contributing-)
@@ -84,22 +68,21 @@ To get a local copy up and running, follow these steps:
   - `https://github.com/leehaney254/jobBoardAutomation.git`
 - Install Node.js if you do not have it installed [globally.](https://nodejs.org/en)
 - Navigate to the project directory:
-    - `cd jobBoardAutomation`
-- Install project dependencies:
-    -`npm install`
+  - `cd jobBoardAutomation`
+- Install project dependencies: -`npm install`
 - Install Playwright browsers:
-    - `npx playwright install`
+  - `npx playwright install`
 - Create a .env file in the project root and add your keys:
-    - `OPENAI_API_KEY=your_openai_api_key`
-    - `SHEET_ID=your_google_sheet_id`
-    - `GOOGLE_APPLICATION_CREDENTIALS=./credentials.json`
+  - `OPENAI_API_KEY=your_openai_api_key`
+  - `SHEET_ID=your_google_sheet_id`
+  - `GOOGLE_APPLICATION_CREDENTIALS=./credentials.json`
 - Set up Google Sheets API:
 - Enable Google Sheets API in Google Cloud
 - Create a service account and download credentials.json
 - Place credentials.json in the project root
 - Share your spreadsheet with the service account email
 - Run the scraper:
- - `npm run start`
+- `npm run start`
 - Open your Google Sheet to see the scraped jobs and generated messages
 
 ### Prerequisites
@@ -170,5 +153,3 @@ If you like this project kindly leave a ⭐
 This project is [MIT](./LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
