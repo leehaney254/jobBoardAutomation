@@ -54,6 +54,7 @@ The apps documentation can be found [here.](https://www.notion.so/Documentation-
 - **Job Data Extraction**
 - **Job Data Extraction**
 - **Modular Design**
+- **Customizable cronjob**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -84,6 +85,16 @@ To get a local copy up and running, follow these steps:
 - Run the scraper:
 - `npm run start`
 - Open your Google Sheet to see the scraped jobs and generated messages
+
+## 💻 Automatic scheduling <a name="getting-started"></a>
+- The cronjob has already been configured under `.github/workflows/cron.yml`
+- Go to your repository on GitHub
+- Navigate to: Settings → Secrets and variables → Actions
+- Click New repository secret
+- Add the following secrets:
+  - `OPENAI_API_KEY` → Your OpenAI API key
+  - `SHEET_ID` → Your Google Sheet ID
+- Note the cronjob runs at UTC adjust as needed.
 
 ### Prerequisites
 

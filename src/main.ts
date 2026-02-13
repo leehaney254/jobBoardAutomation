@@ -4,7 +4,7 @@ import { generateMessage } from "./llm";
 import { appendToSheet } from "./sheets";
 
 async function main() {
-
+  
   const jobs = await scrapeJobs("Executive Assistant", "Remote", 1);
 
   let processedCount = 0;
@@ -17,11 +17,6 @@ async function main() {
     console.log(`Processing: ${job.title}`);
 
     const description = await extractDescription(job.url);
-
-    //if (!isValidJob(job, description)) {
-    // console.log("Skipped (invalid)");
-    //  continue;
-    //}
 
     const message = await generateMessage(
       job.company,
