@@ -89,9 +89,11 @@ export async function scrapeJobs(
 export async function extractDescription(url: string): Promise<string> {
   const browser = await chromium.launch({ headless: false });
   const page = await browser.newPage();
-  await closePaidJobsModal(page);
+  
 
-  await page.goto(url, { waitUntil: "networkidle", timeout: 60000 });
+  await page.goto(url, { waitUntil: "domcontentloaded", timeout: 60000 });
+  
+  await closePaidModal(page);
   await page.waitForTimeout(3000);
 
   // Simple + safe: extract entire body text
@@ -129,25 +131,41 @@ async function closeJooblePopup(page: any) {
   }
 }
 
-async function closePaidJobsModal(page: any) {
+async function closePaidModal(page: any) {
   try {
-    // Wait a short time for modal to appear
+    // Wait briefly to allow modal to appear
     await page.waitForTimeout(2000);
 
-    const modalCloseButton = page.locator('[aria-labelledby="paid-job-modal-title"]');
+    const modal = page.locator('[role="dialog"][aria-modal="true"]');
 
-    if (await modalCloseButton.count() > 0) {
-      console.log("Paid jobs modal detected. Closing it...");
-
-      await modalCloseButton.click();
-
-      // Optional: wait for modal to disappear
-      await page.locator('[data-test-name="_crossSign"]').waitFor({ state: "detached", timeout: 5000 }).catch(() => {});
-      
-      console.log("Modal closed successfully");
+    if (await modal.count() === 0) {
+      console.log("No modal detected");
+      return;
     }
+
+    console.log("Modal detected");
+
+    // Try clicking the Skip button first (more reliable)
+    const skipButton = page.locator('[data-test-name="_skipPopup"]');
+
+    if (await skipButton.count() > 0) {
+      await skipButton.click({ force: true });
+      await modal.waitFor({ state: "detached", timeout: 5000 }).catch(() => {});
+      console.log("Closed modal using Skip button");
+      return;
+    }
+
+    // Fallback: click the X button
+    const closeButton = page.locator('[data-test-name="_crossSign"]');
+
+    if (await closeButton.count() > 0) {
+      await closeButton.click({ force: true });
+      await modal.waitFor({ state: "detached", timeout: 5000 }).catch(() => {});
+      console.log("Closed modal using X button");
+    }
+
   } catch (err) {
-    console.log("No paid jobs modal detected or failed to close:", err.message);
+    console.log("Modal close attempt failed:", err.message);
   }
 }
 

@@ -18,10 +18,10 @@ async function main() {
 
     const description = await extractDescription(job.url);
 
-    if (!isValidJob(job, description)) {
-      console.log("Skipped (invalid)");
-      continue;
-    }
+    //if (!isValidJob(job, description)) {
+    // console.log("Skipped (invalid)");
+    //  continue;
+    //}
 
     const message = await generateMessage(
       job.company,
